@@ -1,0 +1,33 @@
+﻿<Controls:MetroWindow x:Class="ProjectProcessing.MainApp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectProcessing"
+        mc:Ignorable="d" Height="500" Width="645" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Controls:Tile Title="Download" HorizontalTitleAlignment="Center" TitleFontSize="32"
+                    TiltFactor="2"
+                    Width="305" Height="150" 
+                    Count="" Margin="10,309,322,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF2FB1BE"/>
+        <Controls:Tile Title="Website" HorizontalTitleAlignment="Center" TitleFontSize="32"
+            TiltFactor="2"
+            Width="150" Height="150" 
+            Count="" Margin="10,154,477,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEBB642"/>
+        <Controls:Tile Title="Management" HorizontalTitleAlignment="Center" TitleFontSize="32"
+            TiltFactor="2"
+            Width="305" Height="150" 
+            Count="" Margin="320,309,12,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEF3A5B"/>
+        <Controls:Tile Title="Upload" HorizontalTitleAlignment="Center" TitleFontSize="32"
+            TiltFactor="2"
+            Width="305" Height="150" 
+            Count="" Margin="165,154,167,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF8DB932"/>
+        <Controls:Tile Title="Settings" HorizontalTitleAlignment="Center" TitleFontSize="32"
+            TiltFactor="2"
+            Width="150" Height="150" 
+            Count="" Margin="475,154,12,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF395F83" Content=""/>
+
+    </Grid>
+</Controls:MetroWindow>
