@@ -8,26 +8,27 @@
         xmlns:local="clr-namespace:ProjectProcessing"
         mc:Ignorable="d" Height="500" Width="645" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Controls:Tile Title="Download" HorizontalTitleAlignment="Center" TitleFontSize="32"
+        <Controls:Tile x:Name="butDownload" Title="Download" HorizontalTitleAlignment="Center" TitleFontSize="32"
                     TiltFactor="2"
                     Width="305" Height="150" 
-                    Count="" Margin="10,309,322,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF2FB1BE"/>
-        <Controls:Tile Title="Website" HorizontalTitleAlignment="Center" TitleFontSize="32"
+                    Count="" Margin="10,309,322,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF2FB1BE" d:IsLocked="True"/>
+        <Controls:Tile x:Name="butWebsite" Title="Website" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="150" Height="150" 
-            Count="" Margin="10,154,477,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEBB642"/>
-        <Controls:Tile Title="Management" HorizontalTitleAlignment="Center" TitleFontSize="32"
+            Count="" Margin="10,154,477,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEBB642" Click="butWebsite_Click" d:IsLocked="True"/>
+        <Controls:Tile x:Name="butManagement" Title="Management" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="305" Height="150" 
-            Count="" Margin="320,309,12,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEF3A5B"/>
-        <Controls:Tile Title="Upload" HorizontalTitleAlignment="Center" TitleFontSize="32"
+            Count="" Margin="320,309,12,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEF3A5B" Click="butManagement_Click" d:IsLocked="True"/>
+        <Controls:Tile x:Name="butUpload" Title="Upload" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="305" Height="150" 
-            Count="" Margin="165,154,167,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF8DB932"/>
-        <Controls:Tile Title="Settings" HorizontalTitleAlignment="Center" TitleFontSize="32"
+            Count="" Margin="165,154,167,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF8DB932" Click="butUpload_Click"/>
+        <Controls:Tile x:Name="butSettings" Title="Settings" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="150" Height="150" 
-            Count="" Margin="475,154,12,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF395F83" Content=""/>
+            Count="" Margin="475,154,12,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF395F83" Content="" Click="butSettings_Click" d:IsLocked="True"/>
+        <StackPanel x:Name="Overlay" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#BF000000" Height="1000" Width="1000" Visibility="Hidden" d:IsLocked="True"/>
 
     </Grid>
 </Controls:MetroWindow>

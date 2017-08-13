@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectProcessing.SubWindows"
+        xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ProjectProcessing.SubWindows.winUpload"
+        mc:Ignorable="d" Height="300" Width="645" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+    <Grid Loaded="Grid_Loaded">
+        <Label Content="Upload" HorizontalAlignment="Center" Margin="242,0" VerticalAlignment="Top" FontFamily="Calibri Light" FontSize="48"/>
+        <Label x:Name="labSelect" Content="File is selected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="169,74,0,0" FontSize="26" FontFamily="Calibri Light"/>
+        <Label x:Name="labProcess" Content="File is processed" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="169,116,0,0" FontSize="26" FontFamily="Calibri Light"/>
+        <Label x:Name="labUpload" Content="Processed is uploaded" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="169,158,0,0" FontSize="26" FontFamily="Calibri Light"/>
+        <Button x:Name="butUpload" Content="Placeholder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFFEE538" Margin="169,205,0,0" Click="butUpload_Click" IsEnabled="False"/>
+
+        <Button x:Name="butCancel" Margin="169,250,324,0" VerticalAlignment="Top" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1" Width="152" Click="butCancel_Click" Content="Cancel"/>
+        <Button x:Name="butRestart" Content="Restart Upload" Margin="326,250,167,0" VerticalAlignment="Top" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1" Width="152" Click="butRestart_Click"/>
+        <Label x:Name="labSelectStatus" Content="✓" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,74,0,0" FontSize="26" FontFamily="Calibri Light" IsEnabled="False"/>
+        <Label x:Name="labProcessStatus" Content="✓" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,116,0,0" FontSize="26" FontFamily="Calibri Light" IsEnabled="False"/>
+        <Label x:Name="labUploadStatus" Content="✓" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,158,0,0" FontSize="26" FontFamily="Calibri Light" IsEnabled="False"/>
+
+    </Grid>
+</Window>

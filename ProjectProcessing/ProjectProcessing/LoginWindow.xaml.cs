@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using MahApps.Metro;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -32,6 +33,23 @@ namespace ProjectProcessing
             Hide();
             ma.ShowDialog();
             Close();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Properties.Settings.Default.WinColour), ThemeManager.GetAppTheme(Properties.Settings.Default.WinTheme));
+            }
+            catch
+            {
+                MessageBox.Show("Invalid Theme Selection");
+            }
         }
     }
 }

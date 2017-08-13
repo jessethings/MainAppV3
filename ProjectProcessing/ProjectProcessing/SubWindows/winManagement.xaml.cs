@@ -12,16 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ProjectProcessing
+namespace ProjectProcessing.SubWindows
 {
     /// <summary>
-    /// Interaction logic for mainwindow.xaml
+    /// Interaction logic for winManagement.xaml
     /// </summary>
-    public partial class mainwindow : Window
+    public partial class winManagement : Window
     {
-        public mainwindow()
+        public winManagement()
         {
             InitializeComponent();
+        }
+
+        private void butCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

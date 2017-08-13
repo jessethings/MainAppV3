@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\Project\ProjectProcessing\ProjectProcessing\App.xaml
-31823726895
+6294126825
 
-7-859594979
-16506093040
-LoginWindow.xaml;MainApp.xaml;mainwindow.xaml;
+11-264550733
+18534545201
+LoginWindow.xaml;MainApp.xaml;mainwindow.xaml;SubWindows\winManagement.xaml;SubWindows\winSettings.xaml;SubWindows\winUpload.xaml;
 
 False
 

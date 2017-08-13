@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using ProjectProcessing.SubWindows;
 
 namespace ProjectProcessing
 {
@@ -23,6 +24,52 @@ namespace ProjectProcessing
         public MainApp()
         {
             InitializeComponent();
+        }
+
+        //open up the settings window when the user clicks the settings button
+        private void butSettings_Click(object sender, RoutedEventArgs e)
+        {
+            winSettings win = new winSettings();
+            win.Owner = this;
+            Overlay.Visibility = Visibility.Visible;
+            win.ShowDialog();
+            win = null;
+            Overlay.Visibility = Visibility.Hidden;
+        }
+
+        //open up the project's website when a user clicks the website button
+        private void butWebsite_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(Properties.Settings.Default.WebsiteUrl);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid or Non-Existent Settings File");
+            }
+        }
+
+        //open up the management window when the user clicks management
+        private void butManagement_Click(object sender, RoutedEventArgs e)
+        {
+            winManagement win = new winManagement();
+            win.Owner = this;
+            Overlay.Visibility = Visibility.Visible;
+            win.ShowDialog();
+            win = null;
+            Overlay.Visibility = Visibility.Hidden;
+        }
+
+        //open up the upload menu when the user clicks upload
+        private void butUpload_Click(object sender, RoutedEventArgs e)
+        {
+            winUpload win = new winUpload();
+            win.Owner = this;
+            Overlay.Visibility = Visibility.Visible;
+            win.ShowDialog();
+            win = null;
+            Overlay.Visibility = Visibility.Hidden;
         }
     }
 }

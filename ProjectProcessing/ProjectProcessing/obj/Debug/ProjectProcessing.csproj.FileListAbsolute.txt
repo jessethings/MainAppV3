@@ -24,3 +24,9 @@ E:\Project\ProjectProcessing\ProjectProcessing\bin\Debug\MahApps.Metro.IconPacks
 E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\App.baml
 E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\MainApp.g.cs
 E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\MainApp.baml
+E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winSettings.g.cs
+E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winSettings.baml
+E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winManagement.g.cs
+E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winManagement.baml
+E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winUpload.g.cs
+E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winUpload.baml
