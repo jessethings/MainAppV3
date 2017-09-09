@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using ProjectProcessing.SubWindows;
+using ProjectProcessing.Properties;
 
 namespace ProjectProcessing
 {
@@ -42,7 +43,7 @@ namespace ProjectProcessing
         {
             try
             {
-                System.Diagnostics.Process.Start(Properties.Settings.Default.WebsiteUrl);
+                System.Diagnostics.Process.Start(AppSettings.Default.WebsiteUrl);
             }
             catch
             {

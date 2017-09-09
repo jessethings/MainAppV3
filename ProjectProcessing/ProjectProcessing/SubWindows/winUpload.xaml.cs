@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
+using FortunaExcelProcessing.GUI;
+using FortunaExcelProcessing;
 
 namespace ProjectProcessing.SubWindows
 {
@@ -24,12 +26,18 @@ namespace ProjectProcessing.SubWindows
         UploadStage uStage = UploadStage.nil;
         Brush green = new SolidColorBrush(Colors.Green);
         Brush black = new SolidColorBrush(Colors.Black);
+        string _file;
+        ProcessData ProcDat;
+        BranchIDManagement branchMan;
 
         public winUpload()
         {
             InitializeComponent();
         }
 
+//BELOW ME IS HORRIBLE CODE THAT WILL BE REWRITTEN
+//TRY NOT TO COMMIT SUICIDE IF YOU VIEW IT
+#region IGNORE_ME
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             uStage = UploadStage.selectFile;
@@ -40,7 +48,8 @@ namespace ProjectProcessing.SubWindows
             labSelectStatus.Content = "X";
             labProcessStatus.Visibility = Visibility.Hidden;
             labUploadStatus.Visibility = Visibility.Hidden;
-            CheckForExistingUpload();
+            _file = "";
+            //CheckForExistingUpload();
         }
 
         //check what stage of the upload process the application is currently at
@@ -83,11 +92,13 @@ namespace ProjectProcessing.SubWindows
                 dlg.CheckFileExists = true;
                 dlg.CheckPathExists = true;
                 dlg.ValidateNames = true;
-                if (Properties.Settings.Default.TempLoc != null && Directory.Exists(Properties.Settings.Default.TempLoc))
-                    dlg.InitialDirectory = Properties.Settings.Default.TempLoc;
-
+                if (ModifySettings.GetWorkingPath() != null && Directory.Exists(ModifySettings.GetWorkingPath()))
+                    dlg.InitialDirectory = ModifySettings.GetWorkingPath();
                 if (dlg.ShowDialog() == true)
                 {
+                    _file = dlg.FileName;
+                    StepOne();
+                    
                     butUpload.Content = "Process File";
                     labSelectStatus.Content = "✓";
                     labSelect.Foreground = green;
@@ -100,9 +111,11 @@ namespace ProjectProcessing.SubWindows
             {
                 labProcessStatus.Content = "-";
                 butUpload.IsEnabled = false;
-                if (IsDbLocValid() || true)
+                if (IsDbLocValid())
                 {
                     //process
+                    StepTwo();
+
                     butUpload.Content = "Upload Processed Data";
                     butUpload.IsEnabled = true;
                     uStage++;
@@ -125,6 +138,8 @@ namespace ProjectProcessing.SubWindows
                 if (IsDbLocValid() || true)
                 {
                     //upload
+                    StepThree();
+
                     butUpload.Content = "Complete!";
                     uStage++;
                     labUploadStatus.Content = "✓";
@@ -143,8 +158,8 @@ namespace ProjectProcessing.SubWindows
 
         bool IsDbLocValid()
         {
-            if (Directory.Exists(Properties.Settings.Default.TempLoc))
-                if (File.Exists(Properties.Settings.Default.TempLoc + "\\" + Properties.Settings.Default.DbName))
+            if (Directory.Exists(ModifySettings.GetWorkingPath()))
+                if (File.Exists(ModifySettings.GetDbFilePath()))
                     return true;
             return false;
         }
@@ -152,7 +167,7 @@ namespace ProjectProcessing.SubWindows
         private void butRestart_Click(object sender, RoutedEventArgs e)
         {
             if (IsDbLocValid())
-                File.Delete(Properties.Settings.Default.TempLoc + "\\" + Properties.Settings.Default.DbName);
+                File.Delete(ModifySettings.GetDbFilePath());
             uStage = UploadStage.selectFile;
             butUpload.IsEnabled = true;
             butUpload.Content = "Select a Data File";
@@ -167,6 +182,33 @@ namespace ProjectProcessing.SubWindows
             labProcessStatus.Foreground = black;
             labSelect.Foreground = black;
             labSelectStatus.Foreground = black;
+        }
+#endregion IGNORE_ME
+
+        //THIS IS THE METHOD CALLED WHEN THE USER SELECTS A FILE IN THE FILE DIALOG
+        void StepOne()
+        {
+            branchMan = new BranchIDManagement();
+            ProcDat = new ProcessData(_file);
+            ProcDat.createSQLiteDB();
+            branchMan.CreateFarmTable();
+            ProcDat.CreateWorkBook();
+            //ProcDat.CloseWorkbook();
+        }
+
+        //THIS IS THE METHOD CALLED WHEN THE USER CLICKS THE PROCESS BUTTON
+        void StepTwo()
+        {
+            ProcDat.processSheet("Weekly Data");
+            ProcDat.processSheet("Weekly Observations");
+            ProcDat.processSheet("Hives");
+            ProcDat.CloseWorkbook();
+        }
+
+        //THIS IS THE METHOD CALLED WHEN THE USER CLICKS UPLOAD
+        void StepThree()
+        {
+
         }
     }
 }

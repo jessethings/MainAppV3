@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro;
 using System.IO;
+using ProjectProcessing.Properties;
+using FortunaExcelProcessing.GUI;
 
 namespace ProjectProcessing.SubWindows
 {
@@ -47,9 +49,9 @@ namespace ProjectProcessing.SubWindows
 
             try
             {
-                SetTxtTempLoc(Properties.Settings.Default.TempLoc);
-                cmboWinColour.SelectedItem = Properties.Settings.Default.WinColour;
-                cmboWinTheme.SelectedItem = Properties.Settings.Default.WinTheme;
+                SetTxtTempLoc(ModifySettings.GetWorkingPath());
+                cmboWinColour.SelectedItem = AppSettings.Default.WinColour;
+                cmboWinTheme.SelectedItem = AppSettings.Default.WinTheme;
             }
             catch
             {
@@ -66,10 +68,10 @@ namespace ProjectProcessing.SubWindows
         //user wants to save any changes made and close the window
         private void butSave_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.TempLoc = txtTempLoc.Text;
-            Properties.Settings.Default.WinColour = (string)cmboWinColour.SelectedItem;
-            Properties.Settings.Default.WinTheme = (string)cmboWinTheme.SelectedItem;
-            Properties.Settings.Default.Save();
+            ModifySettings.UpdateWorkingPath(txtTempLoc.Text);
+            AppSettings.Default.WinColour = (string)cmboWinColour.SelectedItem;
+            AppSettings.Default.WinTheme = (string)cmboWinTheme.SelectedItem;
+            AppSettings.Default.Save();
             this.Close();
         }
 
@@ -108,7 +110,8 @@ namespace ProjectProcessing.SubWindows
         //Used to reset the application settings
         private void butResetSettings_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.Reset();
+            AppSettings.Default.Reset();
+            ModifySettings.ResetSettings();
         }
 
         //when a user changes the colour selection for the application base colour or accent
@@ -119,8 +122,8 @@ namespace ProjectProcessing.SubWindows
                 try
                 {
                     ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(cmboWinColour.SelectedValue.ToString()), ThemeManager.GetAppTheme(cmboWinTheme.SelectedValue.ToString()));
-                    Properties.Settings.Default.WinColour = cmboWinColour.SelectedItem.ToString();
-                    Properties.Settings.Default.WinTheme = cmboWinTheme.SelectedItem.ToString();
+                    AppSettings.Default.WinColour = cmboWinColour.SelectedItem.ToString();
+                    AppSettings.Default.WinTheme = cmboWinTheme.SelectedItem.ToString();
                 }
                 catch
                 {

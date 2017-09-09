@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using ProjectProcessing.Properties;
 
 namespace ProjectProcessing
 {
@@ -44,7 +45,7 @@ namespace ProjectProcessing
         {
             try
             {
-                ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Properties.Settings.Default.WinColour), ThemeManager.GetAppTheme(Properties.Settings.Default.WinTheme));
+                ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(AppSettings.Default.WinColour), ThemeManager.GetAppTheme(AppSettings.Default.WinTheme));
             }
             catch
             {

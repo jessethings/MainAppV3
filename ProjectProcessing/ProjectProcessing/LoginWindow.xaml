@@ -12,6 +12,7 @@
         <Button Content="Log in" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Margin="46,358,0,0" Controls:ButtonHelper.CornerRadius="0" FontFamily="Calibri Light" FontSize="32" Controls:ControlsHelper.ContentCharacterCasing="Normal" Foreground="Black" Background="#FFFEE538" BorderThickness="0" BorderBrush="Black" Click="Button_Click" Cursor="Hand" FontWeight="Bold" />
         <Button Content="or create a new account" HorizontalAlignment="Center" Margin="0,410,0,0" VerticalAlignment="Center" Width="199" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF424242" Controls:ButtonHelper.CornerRadius="0" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Calibri Light" FontSize="18" BorderThickness="0" Cursor="Hand"/>
         <CheckBox Content="Remember Me" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,321,0,0" Foreground="#FF424242" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Controls:MetroWindow>

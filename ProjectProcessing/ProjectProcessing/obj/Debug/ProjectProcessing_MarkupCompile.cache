@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\Project\ProjectProcessing\ProjectProcessing\obj\Debug\
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\
 ProjectProcessing
 none
 false
 DEBUG;TRACE
-E:\Project\ProjectProcessing\ProjectProcessing\App.xaml
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\App.xaml
 6294126825
 
-11-264550733
-18534545201
+11-1977182251
+25-1035296698
 LoginWindow.xaml;MainApp.xaml;mainwindow.xaml;SubWindows\winManagement.xaml;SubWindows\winSettings.xaml;SubWindows\winUpload.xaml;
 
 False
