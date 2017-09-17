@@ -28,5 +28,21 @@ namespace ProjectProcessing.SubWindows
         {
             this.Close();
         }
+
+        private void butUsers_Click(object sender, RoutedEventArgs e)
+        {
+            winUserManagement win = new winUserManagement();
+            win.Owner = this.Owner;
+            win.ShowDialog();
+            win = null;
+        }
+
+        private void butFarms_Click(object sender, RoutedEventArgs e)
+        {
+            winBranchManagement win = new winBranchManagement();
+            win.Owner = this.Owner;
+            win.ShowDialog();
+            win = null;
+        }
     }
 }

@@ -23,21 +23,53 @@ namespace ProjectProcessing.SubWindows
     /// </summary>
     public partial class winUpload : Window
     {
+        const bool CHECK_FOR_EXISTING_UPLOAD = true; //true will allow the user to resume progress on the processing, false will force the user to start a fresh upload each time the close the window
+
+        //THIS IS THE METHOD CALLED WHEN THE USER SELECTS A FILE IN THE FILE DIALOG
+        void StepOne()
+        {
+            branchMan = new BranchIDManagement(); //responsible for the farm table
+            ProcDat = new ProcessData(_file); //respoonsible for processing the source data into raw data
+            udb = new UploadDB(); //responsible for uploading to the database online
+
+            ProcDat.createSQLiteDB(); //create local database for temporary storage
+            branchMan.CreateFarmTable(); //setup the farm identification so the processing can run correctly
+            ProcDat.OpenWorkBook();
+        }
+
+        //THIS IS THE METHOD CALLED WHEN THE USER CLICKS THE PROCESS BUTTON
+        void StepTwo()
+        {
+            if (ProcDat.ProcessAll()) //wait for all the data to be processed, utilises multithreading
+                MessageBox.Show("Complete!");
+        }
+
+        //THIS IS THE METHOD CALLED WHEN THE USER CLICKS UPLOAD
+        void StepThree()
+        {
+            if (udb.UploadAll()) //wait for all the data to be uploaded, utilises multithreading, closes the workbook
+                MessageBox.Show("Complete");
+        }
+
+        //################################################
+        //BELOW ME IS HORRIBLE CODE THAT WILL BE REWRITTEN
+        //TRY NOT TO COMMIT SUICIDE IF YOU VIEW IT
+        //################################################
+        #region IGNORE_ME   
+
         UploadStage uStage = UploadStage.nil;
         Brush green = new SolidColorBrush(Colors.Green);
         Brush black = new SolidColorBrush(Colors.Black);
         string _file;
         ProcessData ProcDat;
         BranchIDManagement branchMan;
+        UploadDB udb;
 
         public winUpload()
         {
             InitializeComponent();
         }
 
-//BELOW ME IS HORRIBLE CODE THAT WILL BE REWRITTEN
-//TRY NOT TO COMMIT SUICIDE IF YOU VIEW IT
-#region IGNORE_ME
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             uStage = UploadStage.selectFile;
@@ -49,7 +81,8 @@ namespace ProjectProcessing.SubWindows
             labProcessStatus.Visibility = Visibility.Hidden;
             labUploadStatus.Visibility = Visibility.Hidden;
             _file = "";
-            //CheckForExistingUpload();
+            if (CHECK_FOR_EXISTING_UPLOAD)
+                CheckForExistingUpload();
         }
 
         //check what stage of the upload process the application is currently at
@@ -183,32 +216,6 @@ namespace ProjectProcessing.SubWindows
             labSelect.Foreground = black;
             labSelectStatus.Foreground = black;
         }
-#endregion IGNORE_ME
-
-        //THIS IS THE METHOD CALLED WHEN THE USER SELECTS A FILE IN THE FILE DIALOG
-        void StepOne()
-        {
-            branchMan = new BranchIDManagement();
-            ProcDat = new ProcessData(_file);
-            ProcDat.createSQLiteDB();
-            branchMan.CreateFarmTable();
-            ProcDat.CreateWorkBook();
-            //ProcDat.CloseWorkbook();
-        }
-
-        //THIS IS THE METHOD CALLED WHEN THE USER CLICKS THE PROCESS BUTTON
-        void StepTwo()
-        {
-            ProcDat.processSheet("Weekly Data");
-            ProcDat.processSheet("Weekly Observations");
-            ProcDat.processSheet("Hives");
-            ProcDat.CloseWorkbook();
-        }
-
-        //THIS IS THE METHOD CALLED WHEN THE USER CLICKS UPLOAD
-        void StepThree()
-        {
-
-        }
+        #endregion IGNORE_ME
     }
 }

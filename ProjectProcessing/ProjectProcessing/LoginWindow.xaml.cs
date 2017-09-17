@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using ProjectProcessing.Properties;
+using FortunaExcelProcessing.GUI;
+using FortunaExcelProcessing;
 
 namespace ProjectProcessing
 {
@@ -29,11 +31,45 @@ namespace ProjectProcessing
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainApp ma = new MainApp();
-            ma.Owner = GetWindow(this);
-            Hide();
-            ma.ShowDialog();
-            Close();
+            if (chkchk.IsChecked == true)
+            {
+                MainApp ma = new MainApp();
+                ma.Owner = GetWindow(this);
+                Hide();
+                ma.ShowDialog();
+                Close();
+            }
+            else
+            {
+                if (txtEmailLogin.Text.Length > 5 && txtEmailLogin.Text.Contains("@"))
+                {
+                    if (txtPasswordLogin.Password.Length > 6 && txtPasswordCreate.Password.Length < 30)
+                    {
+                        try
+                        {
+                            if (DownloadData.IsLoginCorrect(txtEmailLogin.Text, txtPasswordLogin.Password))
+                            {
+                                MainApp ma = new MainApp();
+                                ma.Owner = GetWindow(this);
+                                ma.SetUser(txtEmailLogin.Text);
+                                Hide();
+                                ma.ShowDialog();
+                                Close();
+                            }
+                            else
+                                MessageBox.Show("Incorrect login details");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Uh Oh! Something went wrong" + Environment.NewLine + "Please try again later or contact your administrator");
+                        }
+                    }
+                    else
+                        MessageBox.Show("Your password must be longer than 6 characters and less than 30");
+                }
+                else
+                    MessageBox.Show("Please enter a valid email address");
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -45,12 +81,49 @@ namespace ProjectProcessing
         {
             try
             {
-                ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(AppSettings.Default.WinColour), ThemeManager.GetAppTheme(AppSettings.Default.WinTheme));
+                ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(ModifySettings.GetWinColour()), ThemeManager.GetAppTheme(ModifySettings.GetWinTheme()));
             }
             catch
             {
                 MessageBox.Show("Invalid Theme Selection");
             }
+        }
+
+        private void butCancelCreate_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAccountPan.Visibility = Visibility.Hidden;
+        }
+
+        private void butCreatePanel_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAccountPan.Visibility = Visibility.Visible;
+        }
+
+        private void butCreateNew_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNameCreate.Text.Length > 2)
+            {
+                if (txtEmailCreate.Text.Length > 5 && txtEmailCreate.Text.Contains("@"))
+                {
+                    if (txtPasswordCreate.Password.Length > 6 && txtPasswordCreate.Password.Length < 30)
+                    {
+                        try
+                        {
+                            UploadData.CreateUser(new User(txtNameCreate.Text, txtEmailCreate.Text, txtPasswordCreate.Password));
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Uh Oh! Something went wrong" + Environment.NewLine + "Please try again later or contact your administrator");
+                        }
+                    }
+                    else
+                        MessageBox.Show("Your password must be longer than 6 characters and less than 30");
+                }
+                else
+                    MessageBox.Show("Please enter a valid email address");
+            }
+            else
+                MessageBox.Show("Please enter a valid name");
         }
     }
 }

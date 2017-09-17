@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using ProjectProcessing.SubWindows;
 using ProjectProcessing.Properties;
+using FortunaExcelProcessing.GUI;
 
 namespace ProjectProcessing
 {
@@ -25,6 +26,11 @@ namespace ProjectProcessing
         public MainApp()
         {
             InitializeComponent();
+        }
+
+        public void SetUser(string user)
+        {
+            txtUser.Content = user;
         }
 
         //open up the settings window when the user clicks the settings button
@@ -43,7 +49,7 @@ namespace ProjectProcessing
         {
             try
             {
-                System.Diagnostics.Process.Start(AppSettings.Default.WebsiteUrl);
+                System.Diagnostics.Process.Start(ModifySettings.GetWebsiteUrl());
             }
             catch
             {
@@ -54,7 +60,28 @@ namespace ProjectProcessing
         //open up the management window when the user clicks management
         private void butManagement_Click(object sender, RoutedEventArgs e)
         {
-            winManagement win = new winManagement();
+            try
+            {
+                if (chkchk.IsChecked == true || DownloadData.GetUserRole(txtUser.Content.ToString()) == 0)
+                {
+                    winManagement win = new winManagement();
+                    win.Owner = this;
+                    Overlay.Visibility = Visibility.Visible;
+                    win.ShowDialog();
+                    win = null;
+                    Overlay.Visibility = Visibility.Hidden;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("You do not have the permissions to view this menu");
+            }
+        }
+
+        //open up the upload menu when the user clicks upload
+        private void butUpload_Click(object sender, RoutedEventArgs e)
+        {
+            winUpload win = new winUpload();
             win.Owner = this;
             Overlay.Visibility = Visibility.Visible;
             win.ShowDialog();
@@ -62,10 +89,10 @@ namespace ProjectProcessing
             Overlay.Visibility = Visibility.Hidden;
         }
 
-        //open up the upload menu when the user clicks upload
-        private void butUpload_Click(object sender, RoutedEventArgs e)
+        //open up the download menu when the user clicks download
+        private void butDownload_Click(object sender, RoutedEventArgs e)
         {
-            winUpload win = new winUpload();
+            winDownload win = new winDownload();
             win.Owner = this;
             Overlay.Visibility = Visibility.Visible;
             win.ShowDialog();

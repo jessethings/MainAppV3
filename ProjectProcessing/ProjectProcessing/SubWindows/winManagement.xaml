@@ -1,6 +1,7 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectProcessing.SubWindows"
@@ -11,13 +12,14 @@
         <Custom:Tile x:Name="butUsers" Title="Users" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="150" Height="150" 
-            Count="" Margin="169,74,326,51" Custom:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFFEE538"/>
+            Count="" Margin="169,74,326,51" Custom:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFFEE538" Click="butUsers_Click"/>
 
         <Custom:Tile x:Name="butFarms" Title="Farms" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="150" Height="150" 
-            Count="" Margin="325,74,170,51" Custom:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFFEE538"/>
+            Count="" Margin="325,74,170,51" Custom:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFFEE538" Click="butFarms_Click" Content=""/>
         <Button x:Name="butCancel" Content="Cancel" HorizontalAlignment="Center" Margin="92,229,93,0" VerticalAlignment="Top" Width="306" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1" Click="butCancel_Click"/>
-
+        <iconPacks:PackIconEntypo x:Name="iconUsers" Kind="Users" Foreground="White" Width="90" Height="90" Margin="199,87,0,0" IsHitTestVisible="False" Focusable="False" />
+        <iconPacks:PackIconEntypo x:Name="iconShop" Kind="Shop" Foreground="White" Width="90" Height="90" Margin="355,87,0,0" IsHitTestVisible="False" Focusable="False" />
     </Grid>
 </Window>

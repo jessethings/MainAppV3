@@ -82,3 +82,9 @@ F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\bin\Debug\Syste
 F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\bin\Debug\System.Data.SQLite.Linq.dll
 F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\bin\Debug\EntityFramework.xml
 F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\bin\Debug\EntityFramework.SqlServer.xml
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winUserManagement.g.cs
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winUserManagement.baml
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winDownload.g.cs
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winDownload.baml
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winBranchManagement.g.cs
+F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\SubWindows\winBranchManagement.baml

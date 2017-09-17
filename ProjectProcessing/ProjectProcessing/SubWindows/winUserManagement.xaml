@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectProcessing.SubWindows"
+        xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ProjectProcessing.SubWindows.winUserManagement"
+        mc:Ignorable="d" Height="275" Width="645" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="None" ShowInTaskbar="False">
+    <Grid>
+        <Button x:Name="butCancel" Content="Back" HorizontalAlignment="Center" Margin="328,0,11,92" VerticalAlignment="Bottom" Width="306" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1" Click="butCancel_Click"/>
+        <Button x:Name="butEdit" Content="Edit User" HorizontalAlignment="Center" Margin="328,92,11,0" VerticalAlignment="Top" Width="306" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1" Click="butEdit_Click"/>
+        <ListBox x:Name="userList" HorizontalAlignment="Left" Height="255" VerticalAlignment="Top" Width="304" Margin="10,10,0,0" Background="White" FontSize="16" SelectionChanged="userList_SelectionChanged"/>
+        <StackPanel x:Name="panEditUser" HorizontalAlignment="Left" Height="255" VerticalAlignment="Top" Width="307" Margin="328,10,0,0" Background="White" Visibility="Hidden">
+            <TextBox x:Name="txtNameEdit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="307" FontFamily="Calibri Light" FontSize="26" Custom:TextBoxHelper.Watermark="Name" BorderThickness="0,0,0,2" Foreground="#FF424242" ToolTip="Your preferred name" Cursor="IBeam" Margin="0,5,0,0" VerticalScrollBarVisibility="Disabled"/>
+            <TextBox x:Name="txtEmailEdit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="307" FontFamily="Calibri Light" FontSize="26" Custom:TextBoxHelper.Watermark="Email" BorderThickness="0,0,0,2" Foreground="#FF424242" ToolTip="Your email address" Cursor="IBeam" Margin="0" VerticalScrollBarVisibility="Disabled"/>
+            <PasswordBox x:Name="txtPasswordEdit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="307" FontFamily="Calibri Light" FontSize="26" Custom:TextBoxHelper.Watermark="Password" BorderThickness="0,0,0,2" Foreground="#FF424242" ToolTip="Your desired password" Cursor="IBeam" Margin="0"/>
+            <ComboBox x:Name="cmboPermission" FontSize="22" Margin="0,5,0,0"/>
+            <ComboBox x:Name="cmboBranch" FontSize="22" Margin="0,5,0,0"/>
+            <Button x:Name="butSaveEdit" Content="Save" HorizontalAlignment="Left" Margin="0,5,1,0" VerticalAlignment="Bottom" Width="150" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFFEE538" Click="butSaveEdit_Click"/>
+            <Button x:Name="butCancelEdit" Content="Cancel" HorizontalAlignment="Right" Margin="0,-40,1,0" VerticalAlignment="Top" Width="150" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1" Click="butCancelEdit_Click" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -8,27 +8,34 @@
         xmlns:local="clr-namespace:ProjectProcessing"
         mc:Ignorable="d" Height="500" Width="645" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
     <Grid>
+        <Image x:Name="logo" HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="516" Margin="11,3,0,0" Source="Images/logolong.png" d:IsLocked="True"/>
         <Controls:Tile x:Name="butDownload" Title="Download" HorizontalTitleAlignment="Center" TitleFontSize="32"
-                    TiltFactor="2"
+                    TiltFactor="4"
                     Width="305" Height="150" 
-                    Count="" Margin="10,309,322,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF2FB1BE" d:IsLocked="True"/>
+                    Count="" Margin="10,309,322,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF2FB1BE" Click="butDownload_Click" Content="" Foreground="White" d:IsLocked="True"/>
         <Controls:Tile x:Name="butWebsite" Title="Website" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="150" Height="150" 
-            Count="" Margin="10,154,477,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEBB642" Click="butWebsite_Click" d:IsLocked="True"/>
+            Count="" Margin="10,154,477,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFFEE538" Click="butWebsite_Click" Foreground="White" d:IsLocked="True"/>
         <Controls:Tile x:Name="butManagement" Title="Management" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="305" Height="150" 
-            Count="" Margin="320,309,12,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEF3A5B" Click="butManagement_Click" d:IsLocked="True"/>
+            Count="" Margin="320,309,12,10" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFEF3A5B" Click="butManagement_Click" Foreground="White" d:IsLocked="True"/>
         <Controls:Tile x:Name="butUpload" Title="Upload" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="305" Height="150" 
-            Count="" Margin="165,154,167,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF8DB932" Click="butUpload_Click"/>
+            Count="" Margin="165,154,167,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF8DB932" Click="butUpload_Click" Foreground="White" d:IsLocked="True"/>
         <Controls:Tile x:Name="butSettings" Title="Settings" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="150" Height="150" 
-            Count="" Margin="475,154,12,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF395F83" Content="" Click="butSettings_Click" d:IsLocked="True"/>
+            Count="" Margin="475,154,12,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF395F83" Content="" Click="butSettings_Click" Foreground="White" d:IsLocked="True"/>
+        <Label x:Name="txtUser" Content="Bob Robbins" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="182,108,0,0" FontSize="24" d:IsLocked="True"/>
+        <CheckBox x:Name="chkchk" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" d:IsLocked="True"/>
+        <iconPacks:PackIconEntypo x:Name="iconDownload" Kind="Download" Height="90" Width="90" Margin="119,324,0,0" Foreground="White" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />
+        <iconPacks:PackIconEntypo x:Name="iconUpload" Kind="UploadToCloud" Height="90" Width="Auto" Foreground="White" HorizontalAlignment="Stretch" Margin="275,168,274,0" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />
+        <iconPacks:PackIconEntypo x:Name="iconGlobe" Kind="Globe" Width="90" Height="90" Foreground="White" Margin="40,168,0,0" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />
+        <iconPacks:PackIconEntypo x:Name="iconCog" Kind="Cog" Foreground="White" Width="90" Height="90" Margin="505,168,0,0" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />
+        <iconPacks:PackIconEntypo x:Name="iconDatabase" Kind="Database" Width="90" Height="90" Foreground="White" Margin="429,324,0,0" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />
         <StackPanel x:Name="Overlay" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#BF000000" Height="1000" Width="1000" Visibility="Hidden" d:IsLocked="True"/>
-
     </Grid>
 </Controls:MetroWindow>

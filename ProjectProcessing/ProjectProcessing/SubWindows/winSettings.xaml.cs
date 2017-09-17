@@ -50,8 +50,8 @@ namespace ProjectProcessing.SubWindows
             try
             {
                 SetTxtTempLoc(ModifySettings.GetWorkingPath());
-                cmboWinColour.SelectedItem = AppSettings.Default.WinColour;
-                cmboWinTheme.SelectedItem = AppSettings.Default.WinTheme;
+                cmboWinColour.SelectedItem = ModifySettings.GetWinColour();
+                cmboWinTheme.SelectedItem = ModifySettings.GetWinTheme();
             }
             catch
             {
@@ -69,9 +69,8 @@ namespace ProjectProcessing.SubWindows
         private void butSave_Click(object sender, RoutedEventArgs e)
         {
             ModifySettings.UpdateWorkingPath(txtTempLoc.Text);
-            AppSettings.Default.WinColour = (string)cmboWinColour.SelectedItem;
-            AppSettings.Default.WinTheme = (string)cmboWinTheme.SelectedItem;
-            AppSettings.Default.Save();
+            ModifySettings.UpdateWinColour(cmboWinColour.SelectedItem.ToString());
+            ModifySettings.UpdateWinTheme(cmboWinTheme.SelectedItem.ToString());
             this.Close();
         }
 
@@ -110,7 +109,6 @@ namespace ProjectProcessing.SubWindows
         //Used to reset the application settings
         private void butResetSettings_Click(object sender, RoutedEventArgs e)
         {
-            AppSettings.Default.Reset();
             ModifySettings.ResetSettings();
         }
 
@@ -122,8 +120,8 @@ namespace ProjectProcessing.SubWindows
                 try
                 {
                     ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(cmboWinColour.SelectedValue.ToString()), ThemeManager.GetAppTheme(cmboWinTheme.SelectedValue.ToString()));
-                    AppSettings.Default.WinColour = cmboWinColour.SelectedItem.ToString();
-                    AppSettings.Default.WinTheme = cmboWinTheme.SelectedItem.ToString();
+                    ModifySettings.UpdateWinColour(cmboWinColour.SelectedItem.ToString());
+                    ModifySettings.UpdateWinTheme(cmboWinTheme.SelectedItem.ToString());
                 }
                 catch
                 {
