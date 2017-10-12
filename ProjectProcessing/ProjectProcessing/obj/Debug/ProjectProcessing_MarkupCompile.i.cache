@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\
+C:\Users\poopie\Music\MainAppV3-master (2)\MainAppV3-master\ProjectProcessing\ProjectProcessing\obj\Debug\
 ProjectProcessing
 none
 false
 DEBUG;TRACE
-F:\programs\github\MainAppV3\ProjectProcessing\ProjectProcessing\App.xaml
+C:\Users\poopie\Music\MainAppV3-master (2)\MainAppV3-master\ProjectProcessing\ProjectProcessing\App.xaml
 9283665365
 
-17-1534693107
-25-1035296698
-LoginWindow.xaml;MainApp.xaml;mainwindow.xaml;SubWindows\winDownload.xaml;SubWindows\winBranchManagement.xaml;SubWindows\winUserManagement.xaml;SubWindows\winManagement.xaml;SubWindows\winSettings.xaml;SubWindows\winUpload.xaml;
+17694103834
+25-476563498
+LoginWindow.xaml;MainApp.xaml;mainwindow.xaml;SubWindows\winBranchManagement.xaml;SubWindows\winDownload.xaml;SubWindows\winManagement.xaml;SubWindows\winSettings.xaml;SubWindows\winUpload.xaml;SubWindows\winUserManagement.xaml;
 
-True
+False
 

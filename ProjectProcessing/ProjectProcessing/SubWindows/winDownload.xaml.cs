@@ -24,7 +24,7 @@ namespace ProjectProcessing.SubWindows
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void butCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

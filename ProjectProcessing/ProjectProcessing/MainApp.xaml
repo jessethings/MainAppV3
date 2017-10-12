@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:ProjectProcessing"
         mc:Ignorable="d" Height="500" Width="645" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Image x:Name="logo" HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="516" Margin="11,3,0,0" Source="Images/logolong.png" d:IsLocked="True"/>
+        <Image x:Name="logo" HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="516" Margin="11,3,0,0" Source="logolong.png" d:IsLocked="True"/>
         <Controls:Tile x:Name="butDownload" Title="Download" HorizontalTitleAlignment="Center" TitleFontSize="32"
                     TiltFactor="4"
                     Width="305" Height="150" 
