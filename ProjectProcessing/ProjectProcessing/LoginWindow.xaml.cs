@@ -43,21 +43,11 @@ namespace ProjectProcessing
             {
                 if (txtEmailLogin.Text.Length > 5 && txtEmailLogin.Text.Contains("@"))
                 {
-                    if (txtPasswordLogin.Password.Length > 6 && txtPasswordCreate.Password.Length < 30)
+                    if (txtPasswordLogin.Password.Length > 5 && txtPasswordCreate.Password.Length < 30)
                     {
                         try
                         {
-                            if (DownloadData.IsLoginCorrect(txtEmailLogin.Text, txtPasswordLogin.Password))
-                            {
-                                MainApp ma = new MainApp();
-                                ma.Owner = GetWindow(this);
-                                ma.SetUser(txtEmailLogin.Text);
-                                Hide();
-                                ma.ShowDialog();
-                                Close();
-                            }
-                            else
-                                MessageBox.Show("Incorrect login details");
+                            AttemptLogin(txtEmailLogin.Text, txtPasswordLogin.Password);
                         }
                         catch
                         {
@@ -65,11 +55,29 @@ namespace ProjectProcessing
                         }
                     }
                     else
-                        MessageBox.Show("Your password must be longer than 6 characters and less than 30");
+                        MessageBox.Show("Your password must be at least 6 characters and less than 30");
                 }
                 else
                     MessageBox.Show("Please enter a valid email address");
             }
+        }
+
+        private void AttemptLogin(string email, string password)
+        {
+            if (DownloadData.IsLoginCorrect(email, password))
+            {
+                if (chkRemembner.IsEnabled)
+                    ModifySettings.UpdateRememberedUser(new User("", email, password));
+
+                MainApp ma = new MainApp();
+                ma.Owner = GetWindow(this);
+                ma.SetUser(txtEmailLogin.Text);
+                Hide();
+                ma.ShowDialog();
+                Close();
+            }
+            else
+                MessageBox.Show("Incorrect login details");
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -86,6 +94,19 @@ namespace ProjectProcessing
             catch
             {
                 MessageBox.Show("Invalid Theme Selection");
+            }
+
+            try
+            {
+                if (ModifySettings.GetIsLoginRemembered())
+                {
+                    User user = ModifySettings.GetRememberedUser();
+                    AttemptLogin(user.Email, user.Password);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error, unable to remember login");
             }
         }
 
@@ -105,7 +126,7 @@ namespace ProjectProcessing
             {
                 if (txtEmailCreate.Text.Length > 5 && txtEmailCreate.Text.Contains("@"))
                 {
-                    if (txtPasswordCreate.Password.Length > 6 && txtPasswordCreate.Password.Length < 30)
+                    if (txtPasswordCreate.Password.Length > 5 && txtPasswordCreate.Password.Length < 30)
                     {
                         try
                         {
@@ -117,7 +138,7 @@ namespace ProjectProcessing
                         }
                     }
                     else
-                        MessageBox.Show("Your password must be longer than 6 characters and less than 30");
+                        MessageBox.Show("Your password must be at least 6 characters and less than 30");
                 }
                 else
                     MessageBox.Show("Please enter a valid email address");

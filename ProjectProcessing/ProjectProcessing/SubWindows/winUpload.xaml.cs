@@ -42,6 +42,8 @@ namespace ProjectProcessing.SubWindows
         {
             if (ProcDat.ProcessAll()) //wait for all the data to be processed, utilises multithreading
                 MessageBox.Show("Complete!");
+            else
+                MessageBox.Show("Error");
         }
 
         //THIS IS THE METHOD CALLED WHEN THE USER CLICKS UPLOAD
@@ -49,6 +51,8 @@ namespace ProjectProcessing.SubWindows
         {
             if (udb.UploadAll()) //wait for all the data to be uploaded, utilises multithreading, closes the workbook
                 MessageBox.Show("Complete");
+            else
+                MessageBox.Show("Error");
         }
 
         //################################################

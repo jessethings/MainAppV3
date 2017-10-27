@@ -38,7 +38,8 @@ namespace ProjectProcessing.SubWindows
         void LoadUsers()
         {
             if (userList.Items.Count > 0)
-                userList.Items.Clear();
+                userList.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate () //send a request to the original thread to do the following operation
+                { userList.Items.Clear(); }));
 
             List<User> users = DownloadData.GetAllUsers();
 
@@ -56,15 +57,35 @@ namespace ProjectProcessing.SubWindows
             }));
         }
 
+        //void LoadBranches()
+        //{
+        //    List<Branch> branches = DownloadData.GetAllBranches();
+
+        //    for (int i = 0; i < branches.Count; i++)
+        //    {
+        //        cmboBranch.Items.Add(branches[i].Name);
+        //        branchDict.Add(branches[i].Name, branches[i]);
+        //    }
+        //}
         void LoadBranches()
         {
+            if (cmboBranch.Items.Count > 0)
+                cmboBranch.Items.Clear();
+
             List<Branch> branches = DownloadData.GetAllBranches();
 
-            for (int i = 0; i < branches.Count; i++)
+            cmboBranch.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate () //send a request to the original thread to do the following operation
             {
-                cmboBranch.Items.Add(branches[i].Name);
-                branchDict.Add(branches[i].Name, branches[i]);
-            }
+                Dictionary<string, Branch> branchDict = new Dictionary<string, Branch>();
+
+                for (int i = 0; i < branches.Count; i++)
+                {
+                    cmboBranch.Items.Add(branches[i].Name);
+                    branchDict.Add(branches[i].Name, branches[i]);
+                }
+
+                cmboBranch.Tag = branchDict;
+            }));
         }
 
         private void butCancel_Click(object sender, RoutedEventArgs e)
@@ -134,16 +155,29 @@ namespace ProjectProcessing.SubWindows
 
         private void userList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Dictionary<string, User> users = (Dictionary<string, User>)userList.Tag;
-            User user = users[userList.SelectedItem.ToString()];
-            users = null;
+            User user = null;
+            try
+            {
+                Dictionary<string, User> users = (Dictionary<string, User>)userList.Tag;
+                user = users[userList.SelectedItem.ToString()];
+                users = null;
+            }
+            catch
+            {
 
-            txtNameEdit.Text = user.Name;
-            txtEmailEdit.Text = user.Email;
-            txtPasswordEdit.Password = "";
-            cmboPermission.SelectedIndex = (int)DownloadData.GetUserRole(user.Email);
-            try { cmboBranch.SelectedItem = DownloadData.GetUserBranch(user.Email); }
-            catch { }
+            }
+            if (user != null)
+            {
+                txtNameEdit.Text = user.Name;
+                txtEmailEdit.Text = user.Email;
+                txtPasswordEdit.Password = "";
+                cmboPermission.SelectedIndex = (int)DownloadData.GetUserRole(user.Email);
+                Branch branch = DownloadData.GetUserBranch(user.Email);
+                if (branch != null)
+                    cmboBranch.SelectedIndex = branch.Id - 1;
+                else
+                    cmboBranch.SelectedItem = null;
+            }
         }
     }
 }
