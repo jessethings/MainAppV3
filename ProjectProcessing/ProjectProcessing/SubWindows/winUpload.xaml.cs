@@ -30,7 +30,6 @@ namespace ProjectProcessing.SubWindows
         {
             branchMan = new BranchIDManagement(); //responsible for the farm table
             ProcDat = new ProcessData(_file); //respoonsible for processing the source data into raw data
-            udb = new UploadDB(); //responsible for uploading to the database online
 
             ProcDat.createSQLiteDB(); //create local database for temporary storage
             branchMan.CreateFarmTable(); //setup the farm identification so the processing can run correctly
@@ -49,6 +48,8 @@ namespace ProjectProcessing.SubWindows
         //THIS IS THE METHOD CALLED WHEN THE USER CLICKS UPLOAD
         void StepThree()
         {
+            udb = new UploadDB(); //responsible for uploading to the database online
+
             if (udb.UploadAll()) //wait for all the data to be uploaded, utilises multithreading, closes the workbook
                 MessageBox.Show("Complete");
             else
