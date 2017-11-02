@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjectProcessing.SubWindows"
         xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="ProjectProcessing.SubWindows.winDownload"
         mc:Ignorable="d" Height="275" Width="645" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="None" ShowInTaskbar="False">
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <ComboBox x:Name="cmboDates" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Margin="325,138,0,0" FontSize="22">
             <System:String>2017-01-01</System:String>
             <System:String>2017-01-08</System:String>
@@ -15,7 +15,7 @@
         </ComboBox>
         <Label Content="Report Week" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,134,0,0" FontSize="26" FontFamily="Calibri Light"/>
         <Button x:Name="butCancel" Content="Cancel" HorizontalAlignment="Left" Margin="325,225,0,0" VerticalAlignment="Top" Width="170" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1" Click="butCancel_Click"/>
-        <Button x:Name="butGenerateReport" Content="Generate Report" HorizontalAlignment="Left" Margin="150,180,0,0" VerticalAlignment="Top" Width="345" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFFEE538"/>
+        <Button x:Name="butGenerateReport" Content="Generate Report" HorizontalAlignment="Left" Margin="150,180,0,0" VerticalAlignment="Top" Width="345" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFFEE538" Click="butGenerateReport_Click"/>
         <Label Content="Report Generator" HorizontalAlignment="Center" Margin="150,7,150,0" VerticalAlignment="Top" FontFamily="Calibri Light" FontSize="48" Width="345"/>
         <Button x:Name="butOpenReport" Content="Open Report" HorizontalAlignment="Left" Margin="150,225,0,0" VerticalAlignment="Top" Width="170" FontSize="22" FontFamily="Calibri Light" FontWeight="Bold" Cursor="Hand" Custom:ControlsHelper.ContentCharacterCasing="Normal" Height="40" BorderThickness="0" Custom:ButtonHelper.CornerRadius="0" Background="#FFD1D1D1"/>
     </Grid>
