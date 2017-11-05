@@ -57,16 +57,6 @@ namespace ProjectProcessing.SubWindows
             }));
         }
 
-        //void LoadBranches()
-        //{
-        //    List<Branch> branches = DownloadData.GetAllBranches();
-
-        //    for (int i = 0; i < branches.Count; i++)
-        //    {
-        //        cmboBranch.Items.Add(branches[i].Name);
-        //        branchDict.Add(branches[i].Name, branches[i]);
-        //    }
-        //}
         void LoadBranches()
         {
             if (cmboBranch.Items.Count > 0)
@@ -85,6 +75,7 @@ namespace ProjectProcessing.SubWindows
                 }
 
                 cmboBranch.Tag = branchDict;
+                branchDict = null;
             }));
         }
 
@@ -114,8 +105,10 @@ namespace ProjectProcessing.SubWindows
                         {
                             try
                             {
+                                Dictionary<string, Branch> branchDict = (Dictionary<string, Branch>)cmboBranch.Tag;
                                 UploadData.ModifyUser(user, new User(txtNameEdit.Text, txtEmailEdit.Text, updatePassword == true ? txtPasswordEdit.Password : ""), updatePassword);
                                 UploadData.ModifyPermissions(user, cmboPermission.SelectedIndex);
+                                UploadData.AssignBranch(txtEmailEdit.Text, branchDict[cmboBranch.SelectedValue.ToString()].Id);
                                 Task.Factory.StartNew(() => { LoadUsers(); });
                             }
                             catch
@@ -130,8 +123,10 @@ namespace ProjectProcessing.SubWindows
                     {
                         try
                         {
+                            Dictionary<string, Branch> branchDict = (Dictionary<string, Branch>)cmboBranch.Tag;
                             UploadData.ModifyUser(user, new User(txtNameEdit.Text, txtEmailEdit.Text, updatePassword == true ? txtPasswordEdit.Password : ""), updatePassword);
                             UploadData.ModifyPermissions(user, cmboPermission.SelectedIndex);
+                            UploadData.AssignBranch(txtEmailEdit.Text, branchDict[cmboBranch.SelectedValue.ToString()].Id);
                             Task.Factory.StartNew(() => { LoadUsers(); });
                         }
                         catch
@@ -174,7 +169,7 @@ namespace ProjectProcessing.SubWindows
                 cmboPermission.SelectedIndex = (int)DownloadData.GetUserRole(user.Email);
                 Branch branch = DownloadData.GetUserBranch(user.Email);
                 if (branch != null)
-                    cmboBranch.SelectedIndex = branch.Id - 1;
+                    cmboBranch.SelectedValue = branch.Name;
                 else
                     cmboBranch.SelectedItem = null;
             }

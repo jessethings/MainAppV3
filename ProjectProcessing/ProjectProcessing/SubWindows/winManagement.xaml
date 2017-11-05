@@ -14,7 +14,7 @@
             Width="150" Height="150" 
             Count="" Margin="169,74,326,51" Custom:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFFEE538" Click="butUsers_Click"/>
 
-        <Custom:Tile x:Name="butFarms" Title="Farms" HorizontalTitleAlignment="Center" TitleFontSize="32"
+        <Custom:Tile x:Name="butFarms" Title="Branches" HorizontalTitleAlignment="Center" TitleFontSize="32"
             TiltFactor="2"
             Width="150" Height="150" 
             Count="" Margin="325,74,170,51" Custom:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FFFEE538" Click="butFarms_Click" Content=""/>

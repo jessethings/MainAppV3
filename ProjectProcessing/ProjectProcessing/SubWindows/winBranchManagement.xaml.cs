@@ -30,13 +30,14 @@ namespace ProjectProcessing.SubWindows
 
         void LoadBranches()
         {
-            if (branchList.Items.Count > 0)
-                branchList.Items.Clear();
-
             List<Branch> branches = DownloadData.GetAllBranches();
 
             branchList.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate () //send a request to the original thread to do the following operation
             {
+                branchList.SelectedItem = null;
+                if (branchList.Items.Count > 0)
+                    branchList.Items.Clear();
+
                 Dictionary<string, Branch> branchDict = new Dictionary<string, Branch>();
 
                 for (int i = 0; i < branches.Count; i++)
@@ -62,14 +63,23 @@ namespace ProjectProcessing.SubWindows
 
         private void branchList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Branch branch = null;
+            try
+            {
+                Dictionary<string, Branch> branchDict = (Dictionary<string, Branch>)branchList.Tag;
+                branch = branchDict[branchList.SelectedItem.ToString()];
+                branchDict = null;
+            }
+            catch
+            {
 
-            Dictionary<string, Branch> branchDict = (Dictionary<string, Branch>)branchList.Tag;
-            Branch branch = branchDict[branchList.SelectedItem.ToString()];
-            branchDict = null;
-
-            txtIdEdit.Text = branch.Id.ToString();
-            txtNameEdit.Text = branch.Name;
-            txtAreaEdit.Text = branch.Area.ToString();
+            }
+            if (branch != null)
+            {
+                txtIdEdit.Text = branch.Id.ToString();
+                txtNameEdit.Text = branch.Name;
+                txtAreaEdit.Text = branch.Area.ToString();
+            }
         }
 
         private void butCancelEdit_Click(object sender, RoutedEventArgs e)
@@ -80,6 +90,7 @@ namespace ProjectProcessing.SubWindows
 
         private void butCreateEdit_Click(object sender, RoutedEventArgs e)
         {
+            branchList.SelectedIndex = -1;
             txtIdEdit.Text = "0";
             txtNameEdit.Text = "";
             txtAreaEdit.Text = "";
