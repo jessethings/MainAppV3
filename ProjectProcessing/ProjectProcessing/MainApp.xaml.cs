@@ -84,6 +84,7 @@ namespace ProjectProcessing
         private void butUpload_Click(object sender, RoutedEventArgs e)
         {
             winUpload win = new winUpload();
+            win.SetBranchId(DownloadData.GetUserBranch(txtUser.Content.ToString()).Id);
             win.Owner = this;
             Overlay.Visibility = Visibility.Visible;
             win.ShowDialog();

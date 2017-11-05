@@ -24,6 +24,12 @@ namespace ProjectProcessing.SubWindows
     public partial class winUpload : Window
     {
         const bool CHECK_FOR_EXISTING_UPLOAD = true; //true will allow the user to resume progress on the processing, false will force the user to start a fresh upload each time the close the window
+        int BranchId;
+
+        public void SetBranchId(int branchId)
+        {
+            BranchId = branchId;
+        }
 
         //THIS IS THE METHOD CALLED WHEN THE USER SELECTS A FILE IN THE FILE DIALOG
         void StepOne()
@@ -39,7 +45,7 @@ namespace ProjectProcessing.SubWindows
         //THIS IS THE METHOD CALLED WHEN THE USER CLICKS THE PROCESS BUTTON
         void StepTwo()
         {
-            if (ProcDat.ProcessAll()) //wait for all the data to be processed, utilises multithreading
+            if (ProcDat.ProcessAll(BranchId)) //wait for all the data to be processed, utilises multithreading
                 MessageBox.Show("Complete!");
             else
                 MessageBox.Show("Error");
