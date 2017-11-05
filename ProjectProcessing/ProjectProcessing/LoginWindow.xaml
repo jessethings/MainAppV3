@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectProcessing"
-        mc:Ignorable="d" Height="500" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        mc:Ignorable="d" Height="500" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Logo_1502795232226.png">
     <Grid Loaded="Grid_Loaded">
         <Image x:Name="logo" Height="205" VerticalAlignment="Top" Source="Logo_1502795232226.png" Margin="100,10,100,0"/>
 

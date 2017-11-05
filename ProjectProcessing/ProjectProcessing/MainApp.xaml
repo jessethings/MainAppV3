@@ -6,7 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectProcessing"
-        mc:Ignorable="d" Height="500" Width="645" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+        mc:Ignorable="d" Height="500" Width="645" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Icon="Logo_1502795232226.png">
     <Grid>
         <Image x:Name="logo" HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="516" Margin="11,3,0,0" Source="logolong.png" d:IsLocked="True"/>
         <Controls:Tile x:Name="butDownload" Title="Download" HorizontalTitleAlignment="Center" TitleFontSize="32"
