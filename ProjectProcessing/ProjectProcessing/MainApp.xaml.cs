@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using ProjectProcessing.SubWindows;
 using ProjectProcessing.Properties;
+using FortunaExcelProcessing.Objects;
 using FortunaExcelProcessing.GUI;
 
 namespace ProjectProcessing
@@ -26,6 +27,7 @@ namespace ProjectProcessing
         public MainApp()
         {
             InitializeComponent();
+            SetUser(ModifySettings.GetRememberedUser().Email);
         }
 
         public void SetUser(string user)
@@ -61,8 +63,8 @@ namespace ProjectProcessing
         private void butManagement_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                if (chkchk.IsChecked == true || DownloadData.GetUserRole(txtUser.Content.ToString()) == 0)
+            {//DownloadData.GetUserRole(txtUser.Content.ToString())
+                if (chkchk.IsChecked == true || DownloadData.GetUserRole(txtUser.Content.ToString()) == PermissionLevel.Admin)
                 {
                     winManagement win = new winManagement();
                     win.Owner = this;

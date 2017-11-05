@@ -205,3 +205,4 @@ C:\Users\poopie\Documents\GitHub\MainAppV3\ProjectProcessing\ProjectProcessing\o
 C:\Users\poopie\Documents\GitHub\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\ProjectProcessing.csproj.CoreCompileInputs.cache
 C:\Users\poopie\Documents\GitHub\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\ProjectProcessing.exe
 C:\Users\poopie\Documents\GitHub\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\ProjectProcessing.pdb
+C:\Users\poopie\Documents\GitHub\MainAppV3\ProjectProcessing\ProjectProcessing\obj\Debug\ProjectProcessing.csproj.ResolveComReference.cache

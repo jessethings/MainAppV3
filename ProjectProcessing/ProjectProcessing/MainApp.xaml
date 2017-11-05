@@ -30,7 +30,7 @@
             Width="150" Height="150" 
             Count="" Margin="475,154,12,165" Controls:ButtonHelper.CornerRadius="0" Cursor="Hand" FontFamily="Calibri Light" FontSize="36" Background="#FF395F83" Content="" Click="butSettings_Click" Foreground="White" d:IsLocked="True"/>
         <Label x:Name="txtUser" Content="Bob Robbins" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="182,108,0,0" FontSize="24" d:IsLocked="True"/>
-        <CheckBox x:Name="chkchk" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" d:IsLocked="True"/>
+        <CheckBox x:Name="chkchk" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" d:IsLocked="True"/>
         <iconPacks:PackIconEntypo x:Name="iconDownload" Kind="Download" Height="90" Width="90" Margin="119,324,0,0" Foreground="White" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />
         <iconPacks:PackIconEntypo x:Name="iconUpload" Kind="UploadToCloud" Height="90" Width="Auto" Foreground="White" HorizontalAlignment="Stretch" Margin="275,168,274,0" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />
         <iconPacks:PackIconEntypo x:Name="iconGlobe" Kind="Globe" Width="90" Height="90" Foreground="White" Margin="40,168,0,0" IsHitTestVisible="False" Focusable="False" d:IsLocked="True" />

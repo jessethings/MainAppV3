@@ -51,7 +51,7 @@ namespace ProjectProcessing.SubWindows
             udb = new UploadDB(); //responsible for uploading to the database online
 
             if (udb.UploadAll()) //wait for all the data to be uploaded, utilises multithreading, closes the workbook
-                MessageBox.Show("Complete");
+                MessageBox.Show("The upload is almsot complete!\nPlease do not close this application for another 10 seconds.");
             else
                 MessageBox.Show("Error");
         }

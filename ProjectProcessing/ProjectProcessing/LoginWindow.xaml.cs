@@ -66,12 +66,12 @@ namespace ProjectProcessing
         {
             if (DownloadData.IsLoginCorrect(email, password))
             {
-                if (chkRemembner.IsEnabled)
+                if (chkRemembner.IsChecked == true)
                     ModifySettings.UpdateRememberedUser(new User("", email, password));
 
                 MainApp ma = new MainApp();
                 ma.Owner = GetWindow(this);
-                ma.SetUser(txtEmailLogin.Text);
+                ma.SetUser(email);
                 Hide();
                 ma.ShowDialog();
                 Close();

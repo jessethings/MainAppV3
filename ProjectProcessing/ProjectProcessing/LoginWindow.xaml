@@ -21,7 +21,7 @@
             <Button x:Name="butCreateNew" Content="Create New Account" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Controls:ButtonHelper.CornerRadius="0" FontFamily="Calibri Light" FontSize="32" Controls:ControlsHelper.ContentCharacterCasing="Normal" Foreground="Black" Background="#FFFEE538" BorderThickness="0" BorderBrush="Black" Cursor="Hand" FontWeight="Bold" Margin="0,5,0,0" Click="butCreateNew_Click" MaxWidth="300" />
             <Button x:Name="butCancelCreate" Content="cancel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF424242" Controls:ButtonHelper.CornerRadius="0" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Calibri Light" FontSize="18" BorderThickness="0" Cursor="Hand" ToolTip="Take me back to login" Margin="0,13,0,0" Click="butCancelCreate_Click" MaxWidth="300"/>
         </StackPanel>
-        <CheckBox x:Name="chkchk" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkchk" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
 
     </Grid>
 </Controls:MetroWindow>
