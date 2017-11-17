@@ -16,6 +16,7 @@ using ProjectProcessing.SubWindows;
 using ProjectProcessing.Properties;
 using FortunaExcelProcessing.Objects;
 using FortunaExcelProcessing.GUI;
+using System.IO;
 
 namespace ProjectProcessing
 {
@@ -28,6 +29,22 @@ namespace ProjectProcessing
         {
             InitializeComponent();
             SetUser(ModifySettings.GetRememberedUser().Email);
+            CheckTempLoc();
+        }
+
+        private void CheckTempLoc()
+        {
+            if (!Directory.Exists(ModifySettings.GetWorkingPath()))
+            {
+                try
+                {
+                    Directory.CreateDirectory(ModifySettings.GetWorkingPath());
+                }
+                catch
+                {
+                    Directory.CreateDirectory(@"C:\Project\Temp");
+                }
+            }
         }
 
         public void SetUser(string user)
